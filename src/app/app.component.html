@@ -1,2 +1,19 @@
+<div class="view-picker">
+    <button mat-button [matMenuTriggerFor]="menu" style="color: aliceblue;">Device view (0.7 display rate)</button>
+    <mat-menu #menu="matMenu">
+        @for(phone of phones; track phone.name) {
+            <button mat-menu-item [value]="phone | json" (click)="setPhoneDimensions(phone)">{{phone.name}}</button>
+        }
+    </mat-menu>
+</div>
+<div class="container">
+    <div
+    class="content"
+    #resizableDiv
+    [style.height.px]="divHeight"
+    [style.width.px]="divWidth">
+        <router-outlet/>
+    </div>
+    <h2>{{phone_name}}</h2>
+</div>
 
-<router-outlet />
