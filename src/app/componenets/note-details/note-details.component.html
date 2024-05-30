@@ -12,7 +12,7 @@
             <mat-card-subtitle>{{note.creationDate}} -- {{note.numberOfWords}} words</mat-card-subtitle>
             </mat-card-header>
             <br>
-            <mat-card-content style="height: 70%;">
+            <mat-card-content>
                 @if(!isEditing) {
                     <ng-container>
                         <p (click)="enableEditing()">{{note.content}}</p>
