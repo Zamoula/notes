@@ -1,6 +1,5 @@
 .view-picker{
     background-color: gray;
-    color: red;
     width: fit-content;
     position: fixed;
 }
@@ -8,6 +7,8 @@
     border: 1px gray solid;
     border-radius: 10px;
     transition: all 1s ease;
+    margin-top: 150px;
+
 
 }
 .menu-item{
@@ -18,7 +19,7 @@ h2 {
     font-size: 20px;
 }
 .container{
-    height: 100%;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;

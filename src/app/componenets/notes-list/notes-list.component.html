@@ -1,6 +1,6 @@
 <div class="container" [style.height.px]="d.height" [style.width.px]="d.width">
     <div class="toolbar">Notes</div>
-    <mat-list>
+    <mat-list class="list" [style.width.px]="d.width" [style.height.px]="d.height-50">
             @for(note of notes; track note.id) {
             <mat-list-item style="cursor: pointer;" (click)="goToNote(note.id)">
             <span matListItemTitle class="title">{{note.title}}</span>
@@ -11,7 +11,7 @@
             }
         
       </mat-list>
-      <div class="add" (click)="goToNew()" [style.margin-top.px]="d.height*0.8" [style.margin-left.px]="d.width*0.8">
+      <div class="add" (click)="goToNew()" [style.margin-top.px]="d.height+70" [style.margin-left.px]="d.width-60">
         <span class="material-symbols-outlined">
             add
         </span>
