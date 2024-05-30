@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MaterialModule } from './custom_modules/material.module';
 import { CommonModule } from '@angular/common';
+import { phones } from './models/phone.data';
+import { dm } from './models/dimensions';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +17,8 @@ export class AppComponent implements OnInit{
   divHeight: number = 0;
   divWidth: number = 0;
 
-  // Define the data array containing phone names, heights, and widths
-  phones = [
-    { name: 'iPhone 14 Pro Max', height: 652.4, width: 301 },
-    { name: 'Samsung Galaxy S21', height: 560, width: 252 },
-    { name: 'Google Pixel 6', height: 640.5, width: 288.4 },
-    { name: 'OnePlus 9 Pro', height: 643.3, width: 288.4 }
-  ];
+  // Import the data array containing phone names, heights, and widths
+  phones = phones;
 
   ngOnInit(): void {
     // initially selected phone
@@ -35,5 +32,7 @@ export class AppComponent implements OnInit{
     this.phone_name = phone.name;
     this.divHeight = phone.height;
     this.divWidth = phone.width;
+    dm.height = phone.height;
+    dm.width = phone.width;
   }
 }

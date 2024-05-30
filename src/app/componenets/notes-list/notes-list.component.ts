@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../../custom_modules/material.module';
 import { Router } from '@angular/router';
-import { notes } from '../../mock_data/notes.data';
 import { StorageService } from '../../services/storage.service';
 import { Note } from '../../models/note';
+import { dm } from '../../models/dimensions';
 
 @Component({
   selector: 'app-notes-list',
@@ -13,8 +13,8 @@ import { Note } from '../../models/note';
   styleUrl: './notes-list.component.css'
 })
 export class NotesListComponent implements OnInit{
-   //notes = notes;
   notes: Note[] = [];
+  d:any = dm;
 
   constructor(
     private router:Router,
