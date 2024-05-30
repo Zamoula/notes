@@ -6,7 +6,7 @@
 .content {
     border: 1px gray solid;
     border-radius: 10px;
-    transition: all 1s ease;
+    transition: all 0.5s ease;
     margin-top: 150px;
 
 

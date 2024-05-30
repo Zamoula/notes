@@ -18,6 +18,7 @@ export class NoteDetailsComponent implements OnInit{
   notes: Note[] = [];
   note: any = null;
   isEditing: boolean = false;
+  wordCount: number = 0;
 
   constructor(
     private router:Router,
@@ -33,6 +34,20 @@ export class NoteDetailsComponent implements OnInit{
       const id = +params['id'];
       this.note = this.notes.filter(n => n.id === id)[0];
     });
+    this.wordCount = this.note.numberOfWords;
+  }
+
+  updateWordCount(event: Event): void {
+    this.isEditing = true;
+    const inputText = (event.target as HTMLTextAreaElement).value;
+    this.wordCount = this.countWords(inputText);
+  }
+
+  countWords(text: string): number {
+    if (!text) {
+      return 0;
+    }
+    return text.trim().split(/\s+/).length;
   }
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
@@ -45,7 +60,11 @@ export class NoteDetailsComponent implements OnInit{
     });
   }
 
-  save() {}
+  save() {
+    this.notes = this.notes.filter(n => n.id !== this.note.id);
+    this.notes.push(this.note);
+    this.service.setNotes('notes', this.notes);
+  }
 
   goToHome(){
     this.router.navigate(['']);

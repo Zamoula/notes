@@ -1,7 +1,7 @@
 <div class="container" [style.height.px]="d.height" [style.width.px]="d.width">
     <div class="toolbar">Notes</div>
     <mat-list class="list" [style.width.px]="d.width" [style.height.px]="d.height-50">
-            @for(note of notes; track note.id) {
+            @for(note of notes.slice().reverse(); track note.id) {
             <mat-list-item style="cursor: pointer;" (click)="goToNote(note.id)">
             <span matListItemTitle class="title">{{note.title}}</span>
             <span matListItemLine>{{note.numberOfWords}} words - {{note.creationDate}}</span>
