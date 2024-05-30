@@ -14,6 +14,7 @@ import { notes } from '../../mock_data/notes.data';
 export class NoteDetailsComponent implements OnInit{
   notes = notes;
   note: any = null;
+  isEditing: boolean = false;
 
   constructor(
     private router:Router,
@@ -26,8 +27,18 @@ export class NoteDetailsComponent implements OnInit{
       this.note = this.notes.filter(n => n.id === id)[0];
     });
   }
+  save() {}
 
   goToHome(){
     this.router.navigate(['']);
+  }
+
+  enableEditing() {
+    this.isEditing = true;
+  }
+
+  disableEditing() {
+    this.save();
+    this.isEditing = false;
   }
 }
