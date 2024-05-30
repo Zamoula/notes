@@ -1,1 +1,22 @@
-<p>create-note works!</p>
+<div class="container">
+    <div class="back" (click)="goToHome()">
+        <span class="material-symbols-outlined">
+            arrow_back
+        </span>
+    </div>
+    <div class="toolbar">Notes</div>
+    <br>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Ex. Harry Potter">
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width" style="height: 450px;">
+          <mat-label>Type whatever you want</mat-label>
+          <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary">Save</button>
+    </form>
+</div>
+
