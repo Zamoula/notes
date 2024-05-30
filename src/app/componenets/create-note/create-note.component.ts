@@ -26,13 +26,27 @@ export class CreateNoteComponent implements OnInit{
     this.notes = this.service.getNotes('notes') || [];
   }
 
+  formatDate(date: Date): string {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+  
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+  
+    const formattedDate = `${day}-${month}-${year} ${hours}:${formattedMinutes}`;
+
+    return formattedDate;
+  }
+
   save(): void {
     let n = {
       id: this.notes.length + 1,
       title: this.title,
       content: this.content,
-      creationDate: new Date(),
-      numberOfWords: this.content.split(" ").length + 1
+      creationDate: this.formatDate(new Date()),
+      numberOfWords: this.content.split(" ").length
     }
 
     this.notes.push(n);
