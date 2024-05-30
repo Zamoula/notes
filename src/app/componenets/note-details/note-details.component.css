@@ -20,3 +20,12 @@
     margin-top: 10px;
     margin-left: 10px;
 }
+.card{
+    height: 100%;
+}
+.actions {
+    margin-top: auto;
+    border-top: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+}
