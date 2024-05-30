@@ -24,8 +24,8 @@
                 }
             </mat-card-content>
             <mat-card-actions class="actions">
-            <button mat-button color="warn">Delete</button>
-            <button mat-button disabled>Save</button>
+            <button mat-button color="warn" (click)="openDialog('0ms','0ms')">Delete</button>
+            <button mat-button disabled (click)="save()">Save</button>
             </mat-card-actions>
         </mat-card>
     }

@@ -3,6 +3,8 @@ import { MaterialModule } from '../../custom_modules/material.module';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { notes } from '../../mock_data/notes.data';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteConfirmDialogComponent } from '../delete-confirm-dialog/delete-confirm-dialog.component';
 
 @Component({
   selector: 'app-note-details',
@@ -18,7 +20,8 @@ export class NoteDetailsComponent implements OnInit{
 
   constructor(
     private router:Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public dialog: MatDialog
     ) {}
 
   ngOnInit(): void {
@@ -27,6 +30,16 @@ export class NoteDetailsComponent implements OnInit{
       this.note = this.notes.filter(n => n.id === id)[0];
     });
   }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+    this.dialog.open(DeleteConfirmDialogComponent, {
+      width: '100px',
+      height: '200px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  }
+
   save() {}
 
   goToHome(){
